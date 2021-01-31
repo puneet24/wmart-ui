@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import clsx from 'clsx';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import FilledInput from '@material-ui/core/FilledInput';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import SearchIcon from '@material-ui/icons/Search';
+
+/*
+** Props:- dropdownOptions, onDropdownChange, dropdownSelectedValue
+** Required Props:- onSearchClick
+** Types of all Props :-
+** dropdownOptions: [{label: any, value: any}]
+** onDropdownChange: function(dropdownSelectedValue)
+** dropdownSelectedValue: string
+** onSearchClick: function()
+*/
 
 const useStyles = makeStyles((theme) => ({
     root: {

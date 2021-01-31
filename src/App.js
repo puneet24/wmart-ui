@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import WmartSearch from './components/wmart-search';
+import WmartFeedback from './components/wmart-feedback';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +40,9 @@ function App() {
         }}
         dropdownSelectedValue={"all"}
       ></WmartSearch>
+      <div>
+        <WmartFeedback onFeedbackSubmit={(feedback) => { console.log(feedback) }} />
+      </div>
       </Container>
     </React.Fragment>
   );
