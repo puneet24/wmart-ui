@@ -68,7 +68,7 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function WmartFeedbackMain(props) {
-    const { isFeedbackModalOpen, onClose, onFeedbackSubmit } = props;
+    const { isFeedbackModalOpen, onClose, onFeedbackSubmit, classNames } = props;
     const [feedback, setFeedback] = useState({ star: null, content: '' });
 
     const handleClose = () => {
@@ -77,9 +77,11 @@ export default function WmartFeedbackMain(props) {
 
     const classes = useStyles();
 
+    const userClasses = classNames ? classNames : []
+
     return (
         <div>
-            <Dialog classes={{paper: classes.paper}} className={classes.root} aria-labelledby="customized-dialog-title" open={isFeedbackModalOpen}>
+            <Dialog classes={{paper: classes.paper}} className={[classes.root, ...userClasses].join(' ')} aria-labelledby="customized-dialog-title" open={isFeedbackModalOpen}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
                     Feedback
                 </DialogTitle>

@@ -9,7 +9,7 @@ import WmartFeedbackMain from './feedback';
 */
 
 const WmartFeedback = (props) => {
-    const { onFeedbackSubmit } = props;
+    const { onFeedbackSubmit, classNames } = props;
     const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false)
 
     const onFeedbackClick = (feedback) => {
@@ -19,7 +19,7 @@ const WmartFeedback = (props) => {
 
     return <div>
         <WmartFeedbackWidget isFeedbackModalOpen={isFeedbackModalOpen} onWidgetClick={() => { setIsFeedbackModalOpen(!isFeedbackModalOpen) }}   />
-        <WmartFeedbackMain isFeedbackModalOpen={isFeedbackModalOpen} onClose={() => { setIsFeedbackModalOpen(false) }} onFeedbackSubmit={(feedback) => { onFeedbackClick(feedback) }} />
+        <WmartFeedbackMain isFeedbackModalOpen={isFeedbackModalOpen} onClose={() => { setIsFeedbackModalOpen(false) }} onFeedbackSubmit={(feedback) => { onFeedbackClick(feedback) }} classNames={classNames} />
     </div>
 }
 

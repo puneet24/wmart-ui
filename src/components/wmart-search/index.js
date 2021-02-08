@@ -24,10 +24,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const WmartSearch = (props) => {
-    const { dropdownOptions, suggestions, onTyping, onSearchClick, placeholder, onDropdownChange, dropdownSelectedValue, onSuggestionClick, inputValue } = props;
+    const { dropdownOptions, suggestions, onTyping, onSearchClick, placeholder, onDropdownChange, dropdownSelectedValue, onSuggestionClick, inputValue, classNames } = props;
     const classes = useStyles();
     const [searchedVal, setSearchedVal] = useState(inputValue);
     const [dropdownSelectedvalueParam, setDropdownSelectedValueParam] = useState(dropdownSelectedValue);
+    const userClasses = classNames ? classNames : []
 
     const handleChangeInput = (e) => {
         setSearchedVal(e.target.value);
@@ -38,7 +39,7 @@ const WmartSearch = (props) => {
         <OutlinedInput
             id="outlined-adornment-amount"
             value={searchedVal}
-            className={classes.root}
+            className={[classes.root, ...userClasses].join(' ')}
             onChange={handleChangeInput}
             startAdornment={
                 dropdownOptions ? <InputAdornment position="start">

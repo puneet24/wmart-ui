@@ -5,11 +5,18 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import WmartSearch from './components/wmart-search';
 import WmartFeedback from './components/wmart-feedback';
+import WmartTab from './components/wmart-tab';
 
 
 const useStyles = makeStyles((theme) => ({
   container: {
       marginTop: '20px'
+  },
+  tab: {
+    border: "2px solid red"
+  },
+  feedback: {
+    border: "2px solid yellow"
   }
 }));
 
@@ -41,7 +48,28 @@ function App() {
         dropdownSelectedValue={"all"}
       ></WmartSearch>
       <div>
-        <WmartFeedback onFeedbackSubmit={(feedback) => { console.log(feedback) }} />
+        <WmartFeedback classNames={[ classes.feedback ]} onFeedbackSubmit={(feedback) => { console.log(feedback) }} />
+      </div>
+      <div style={{ margin: 20 }}>
+        <WmartTab
+          selectedTab={0}
+          classNames={[]}
+          items={[
+            {
+              label: 'Label 1',
+              children: <div>Tab 1</div>
+            },
+            {
+              label: 'Label 2',
+              children: <div>Tab 2</div>
+            },
+            {
+              label: 'Label 3',
+              children: <div>Tab 3</div>
+            }
+          ]}
+          onTabChange = {(val) => { console.log(`Tab changed to :- ${val}`) }}
+        ></WmartTab>
       </div>
       </Container>
     </React.Fragment>
